@@ -1,4 +1,6 @@
-# 🌐 Project Nebula: Kubernetes Task Manager UI (Task 3)
+This is the revised, professional README.md file for your Task 3 UI, with the integration point for your UI screenshot clearly marked in the table.
+
+## 🌐 Project Nebula: Kubernetes Task Manager UI (Task 3)
 
 This repository contains the official frontend web application for Project Helios. It provides a functional, accessible, and intuitive interface for interacting with the Kubernetes Executor API (developed in Tasks 1 & 2), enabling full management and dynamic execution of commands within the Kubernetes cluster.
 
@@ -61,12 +63,14 @@ npm start
 
 The following table demonstrates the application's ability to successfully execute all required API operations (CRUD, Search, and the core K8s execution flow).
 
+**Note:** Ensure all proof images are placed in the specified folder (`Task3_screenshots/`).
+
 | ID | Feature Demonstrated | Action & Input | Proof Screenshot |
 | :--- | :--- | :--- | :--- |
-| **1.** | **UI Initial State** | Successful application load and data fetch on component mount. | *[Screenshot: Initial State]* |
-| **2.** | **Task Creation (C)** | Creating a new task (`TSK-01`) via the form input. **Input:** `command: date` | *[Screenshot: Creation Form (PUT)]* |
-| **3.** | **Table & Data Refresh (GET)** | Main table displaying the newly created task (`TSK-01`). | *[Screenshot: Table & Data Refresh (GET)]* |
-| **4.** | **Search Functionality** | Filtering the table contents using a partial name match (e.g., `Demo` or `TSK`). | *[Screenshot: Search Functionality]* |
-| **5.** | **Record Deletion (D)** | Successful removal of an existing record (e.g., `TSK-02`) from the persistent store. | *[Screenshot: Deletion Proof]* |
-| **6.** | **Execution Modal View** | Clicking 'Run / View' to open the detailed history and execution modal. | *[Screenshot: Execution Modal (View)]* |
-| **7.** | **K8s Run Success & Output** | Triggering the **Execute Command in K8s Pod** action, waiting for execution, and displaying the streamed output/status in the history table. | *[Screenshot: K8s Run Success & Output]* |
+| **1.** | **UI Initial State** | Successful application load and data fetch on component mount. | **![UI Initial State](Task3_screenshots/UI Initial State.png)** |
+| **2.** | **Task Creation (C)** | Creating a new task (`TSK-01`) via the form input. **Input:** `command: date` | ![Creation Form](Task3_screenshots/Creation Form (PUT).png) |
+| **3.** | **Table & Data Refresh (GET)** | Main table displaying the newly created task (`TSK-01`). | ![Table Refresh](Task3_screenshots/Table & Data Refresh (GET).png) |
+| **4.** | **Search Functionality** | Filtering the table contents using a partial name match (e.g., `Demo` or `TSK`). | ![Search Proof](Task3_screenshots/Search Functionality.png) |
+| **5.** | **Record Deletion (D)** | Successful removal of an existing record (e.g., `TSK-02`) from the persistent store. | ![Deletion Proof](Task3_screenshots/Deletion Proof.png) |
+| **6.** | **Execution Modal View** | Clicking 'Run / View' to open the detailed history and execution modal. | ![Execution Modal](Task3_screenshots/Execution Modal (View).png) |
+| **7.** | **K8s Run Success & Output** | Triggering the **Execute Command in K8s Pod** action, waiting for execution, and displaying the streamed output/status in the history table. | ![K8s Run Success](Task3_screenshots/K8s Run Success & Output.png) |

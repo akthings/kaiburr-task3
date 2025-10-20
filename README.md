@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# 🌐 Project Nebula: Kubernetes Task Manager UI (Task 3)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the official frontend web application for Project Helios. It provides a functional, accessible, and intuitive interface for interacting with the Kubernetes Executor API (developed in Tasks 1 & 2), enabling full management and dynamic execution of commands within the Kubernetes cluster.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## ✨ Design & Technology
 
-### `npm start`
+The UI is built to ensure a robust and accessible user experience, featuring immediate feedback, clear form validation, and streamlined execution workflows.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Core Technology Stack
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Framework** | React 18+ (TypeScript) | Modern, strongly typed, and component-based structure. |
+| **UI Library** | Ant Design (AntD) | Enterprise-level component library ensuring accessibility and clean, consistent design. |
+| **Styling** | CSS Modules | Encapsulated styling for component isolation. |
+| **API Client** | Axios | Promise-based HTTP client for secure backend communication. |
 
-### `npm test`
+### Usability Highlights
+*   **Real-Time Data Refresh:** Tables update instantly upon creation, update, or deletion.
+*   **Form Validation:** Clear, immediate feedback during task creation prevents submission errors.
+*   **Execution Modal:** Provides a dedicated, isolated view for triggering K8s execution and displaying detailed output history.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ⚙️ Prerequisites & Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This application relies entirely on the successful deployment and accessibility of the **Kubernetes Executor API** (Tasks 1 & 2 Backend).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Backend Connectivity Verification
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ensure the backend service is running, and confirm the `BASE_URL` configuration is correct.
 
-### `npm run eject`
+**Crucial Step:** Locate the service file and update the `BASE_URL` to point to your running NodePort or LoadBalancer IP.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```typescript
+// src/api/tasksApi.ts
+// Example assumes the backend NodePort is 30080
+export const BASE_URL = 'http://localhost:30080/tasks'; 
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Local Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Install dependencies and run the application locally.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+# Install required Node dependencies
+npm install
 
-## Learn More
+# Run the React application in development mode
+npm start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Access the application, typically at:
+# http://localhost:3000
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+## ✅ UI Validation Proofs
+
+The following table demonstrates the application's ability to successfully execute all required API operations (CRUD, Search, and the core K8s execution flow).
+
+| ID | Feature Demonstrated | Action & Input | Proof Screenshot |
+| :--- | :--- | :--- | :--- |
+| **1.** | **UI Initial State** | Successful application load and data fetch on component mount. | *[Screenshot: Initial State]* |
+| **2.** | **Task Creation (C)** | Creating a new task (`TSK-01`) via the form input. **Input:** `command: date` | *[Screenshot: Creation Form (PUT)]* |
+| **3.** | **Table & Data Refresh (GET)** | Main table displaying the newly created task (`TSK-01`). | *[Screenshot: Table & Data Refresh (GET)]* |
+| **4.** | **Search Functionality** | Filtering the table contents using a partial name match (e.g., `Demo` or `TSK`). | *[Screenshot: Search Functionality]* |
+| **5.** | **Record Deletion (D)** | Successful removal of an existing record (e.g., `TSK-02`) from the persistent store. | *[Screenshot: Deletion Proof]* |
+| **6.** | **Execution Modal View** | Clicking 'Run / View' to open the detailed history and execution modal. | *[Screenshot: Execution Modal (View)]* |
+| **7.** | **K8s Run Success & Output** | Triggering the **Execute Command in K8s Pod** action, waiting for execution, and displaying the streamed output/status in the history table. | *[Screenshot: K8s Run Success & Output]* |
